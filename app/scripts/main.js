@@ -20,6 +20,10 @@ $(document).ready(function () {
     text += '<li>Slow Requests= ' + jsondata['slow requests'] + '</li>'
     text += '<li>Start Since = ' + jsondata['start since'] + '</li>'
     text += '<li>Start Time = ' + jsondata['start time'] + '</li>'
+    text += '<li>Start Time = ' + jsondata['start time'] + '</li>'
+    text += '<li>Total Processes = ' + jsondata['total processes'] + '</li>'
+
+
     //$('.jumbotron').html('Pool = ' + jsondata.pool);
     //$('.jumbotron').append('Total processes = ' + jsondata['total processes']);
     text += '</ul>'
