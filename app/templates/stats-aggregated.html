@@ -1,0 +1,10 @@
+<ul class="list-group">
+  {{#each items}}
+  <li class="list-group-item">
+    <span class="badge">{{ value }}</span>
+    <span>{{label}}</span>
+  </li>
+  {{/each}}
+</ul>
+
+<div>Total number of arguments = {{ numberOfProperties }}
