@@ -5,7 +5,8 @@
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
     "moment": "~2.10.3",
-    "handlebars": "~3.0.3"
+    "handlebars": "~3.0.3",
+    "Hover": "~2.0.2"
   },
   "overrides": {
     "bootstrap": {
