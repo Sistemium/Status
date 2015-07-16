@@ -1,1 +1,34 @@
 /* main custom css file */
+
+.name {
+  display: block;
+  float: left;
+  text-align: left;
+}
+
+.name::after{
+  content: ':';
+}
+
+.badge {
+  display: block;
+  float: right;
+  text-align: right;
+}
+
+.list-group-custom{
+  list-style: none;
+  overflow: hidden;
+  padding: 5px;
+}
+
+
+.list-group{
+  padding: 0 20px;
+
+}
+
+.list-group-custom:hover{
+   background-color: gray;
+
+}
