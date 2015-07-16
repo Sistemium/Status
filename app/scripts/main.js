@@ -39,7 +39,7 @@ $(document).ready(function () {
         })
       })
 
-      $('.jumbotron').html(tpl(tplData));
+      $('.main').html(tpl(tplData));
 
     });
 
