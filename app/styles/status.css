@@ -20,6 +20,12 @@
   list-style: none;
   overflow: hidden;
   padding: 5px;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
+  transition-duration: ms;
+  transition-timing-function: linear;
 }
 
 
@@ -29,6 +35,7 @@
 }
 
 .list-group-custom:hover{
-   background-color: gray;
+   background-color: #C9D1D1;
+   border-radius: 45px ;
 
 }
