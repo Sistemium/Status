@@ -1,5 +1,9 @@
 /* main custom css file */
 
+.not-ready {
+  display: none;
+}
+
 .name {
   display: block;
   float: left;
