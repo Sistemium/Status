@@ -4,6 +4,13 @@
 
 $(document).ready(function () {
 
+  var socket = io('http://localhost:3000');
+
+  socket.on('news', function (data) {
+    console.log(data.status);
+    socket.emit('my other event', { my: 'data' });
+  });
+
   var labels = [
     ['Pool', 'pool'],
     ['Total processes', 'total processes'],
