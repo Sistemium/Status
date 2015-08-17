@@ -6,9 +6,29 @@ $(document).ready(function () {
 
   var socket = io('http://localhost:3000');
 
+  function displayStatus (data){
+    $.get('templates/stats-aggregated.html', function(template) {
+      var tpl = Handlebars.compile(template),
+        tplData = {
+          items:[],
+          numberOfProperties: Object.keys(data).length
+        };
+
+      labels.forEach (function (label) {
+        tplData.items.push ({
+          label: label[0],
+          value: data[label[1]]
+        })
+      })
+
+      $('.main').html(tpl(tplData));
+
+    });
+  };
+
   socket.on('news', function (data) {
-    console.log(data.status);
-    socket.emit('my other event', { my: 'data' });
+    displayStatus(data.status);
+    socket.emit('my other event', { my: navigator.userAgent });
   });
 
   var labels = [
@@ -25,30 +45,6 @@ $(document).ready(function () {
     ['Start Since', 'start since'],
     ['Start Time', 'start time']
   ];
-
-  $.ajax({
-    dataType: 'json',
-    url: 'https://api.sistemium.com/status?json',
-    success: function(jsondata){
-      $.get('templates/stats-aggregated.html', function(template) {
-        var tpl = Handlebars.compile(template),
-          tplData = {
-            items:[],
-            numberOfProperties: Object.keys(jsondata).length
-          };
-
-        labels.forEach (function (label) {
-          tplData.items.push ({
-            label: label[0],
-            value: jsondata[label[1]]
-          })
-        })
-
-        $('.main').html(tpl(tplData));
-
-      });
-    }
-  });
 
   var setLocation = function setLocation (path) {
     $('.nav > .button').each (function () {
