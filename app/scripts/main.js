@@ -20,16 +20,16 @@ $(document).ready(function () {
           value: data[label[1]]
         })
       })
-
       $('.main').html(tpl(tplData));
-
     });
   };
 
   socket.on('news', function (data) {
+    var date = moment().format('MMMM Do YYYY, h:mm:ss A');
     displayStatus(data.status);
-    socket.emit('my other event', { my: navigator.userAgent });
+    socket.emit('my other event', { Date: date, Browser: navigator.appName, Platform: navigator.platform});
   });
+
 
   var labels = [
     ['Pool', 'pool'],
