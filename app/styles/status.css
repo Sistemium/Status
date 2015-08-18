@@ -34,7 +34,7 @@
 
 
 .list-group{
-  padding: 0 20px;
+  padding: 0px;
 
 }
 
@@ -42,4 +42,38 @@
    background-color: #C9D1D1;
    border-radius: 45px ;
 
+}
+
+.info-field{
+  list-style: none;
+  overflow: hidden;
+  text-align: center;
+
+}
+
+.info-name, .value {
+  float: left; /* Обтекание справа */
+  width: 35%; /* Ширина текстового блока */
+
+}
+
+.info-name{
+  text-align: left;
+}
+
+.value {
+  text-align: right; /* Выравнивание по правому краю */
+  width: 65%;
+}
+
+.info ul li{
+  margin-bottom: 0px;
+}
+
+.info p,ul {
+  margin: 0;
+  padding: 0;
+}
+.info-ul {
+  padding: 20px 30px;
 }
