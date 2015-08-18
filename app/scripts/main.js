@@ -51,6 +51,10 @@ $(document).ready(function () {
       var el = $(this);
       if (el.find('a').attr('href') == path) {
         el.addClass('active');
+        var loadLink = 'templates/'+path.slice(1)+'.html';
+        $('.main').load(loadLink);
+        console.log(path);
+        console.log(loadLink);
       } else {
         el.removeClass('active');
       }
