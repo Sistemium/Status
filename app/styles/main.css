@@ -41,7 +41,7 @@ body {
 .main {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-  padding: 10px 0;
+
   background-color: red;
   -webkit-border-top-left-radius: 20px;
   -webkit-border-top-right-radius: 20px;
