@@ -10,6 +10,11 @@
   text-align: left;
 }
 
+.wrapper{
+  padding: 20px 30px;
+}
+
+
 .name::after{
   content: ':';
 }
