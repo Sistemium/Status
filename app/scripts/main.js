@@ -27,7 +27,7 @@ $(document).ready(function () {
   socket.on('news', function (data) {
     var date = moment().format('MMMM Do YYYY, h:mm:ss A');
     displayStatus(data.status);
-    socket.emit('my other event', { Date: date, Browser: navigator.appName, Platform: navigator.platform});
+    socket.emit('my other event', { Date: date, Browser: navigator.appName, Platform: navigator.platform, Page: location.hash});
   });
 
 
