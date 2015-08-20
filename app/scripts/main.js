@@ -66,7 +66,7 @@ $(document).ready(function () {
     setLocation ($(this).find('a').attr('href'));
   });
 
-  setLocation (location.hash || '#home');
+  setLocation (location.hash || '#stats-aggregated');
 
   $('.not-ready').removeClass('not-ready');
 
