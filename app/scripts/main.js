@@ -4,32 +4,44 @@
 
 $(document).ready(function () {
 
-  var socket = io('http://localhost:3000');
+  var socket = io('http://localhost:4000/status');
+  var statusTpl;
 
-  function displayStatus (data){
-    $.get('templates/stats-aggregated.html', function(template) {
-      var tpl = Handlebars.compile(template),
-        tplData = {
-          items:[],
-          numberOfProperties: Object.keys(data).length
-        };
+  function displayStatus(data){
 
-      labels.forEach (function (label) {
-        tplData.items.push ({
-          label: label[0],
-          value: data[label[1]]
-        })
+    var tpl = statusTpl;
+
+    var tplData = {
+      items:[],
+      numberOfProperties: Object.keys(data).length
+    };
+
+    labels.forEach (function (label) {
+      tplData.items.push ({
+        label: label[0],
+        value: data[label[1]]
       })
-      $('.main').html(tpl(tplData));
+    })
+
+    $('.outlet.stats-aggregated').html(tpl(tplData));
+
+  }
+
+  function loadStatusTpl(){
+    $.ajax({
+      url: 'templates/stats-aggregated.html',
+      success: function(template){
+        statusTpl = Handlebars.compile(template);
+      },
+      beforeSend: function(){
+          $('.wrapper').addClass('is-loading');
+      },
+      complete: function(){
+          $('.wrapper').removeClass('is-loading');
+      }
     });
-  };
 
-  socket.on('news', function (data) {
-    var date = moment().format('MMMM Do YYYY, h:mm:ss A');
-    displayStatus(data.status);
-    socket.emit('my other event', { Date: date, Browser: navigator.appName, Platform: navigator.platform, Page: location.hash});
-  });
-
+  }
 
   var labels = [
     ['Pool', 'pool'],
@@ -47,28 +59,55 @@ $(document).ready(function () {
   ];
 
   var setLocation = function setLocation (path) {
-    $('.nav > .button').each (function () {
+
+    $('.nav.router > .button').each (function () {
       var el = $(this);
       if (el.find('a').attr('href') == path) {
         el.addClass('active');
-        var loadLink = 'templates/'+path.slice(1)+'.html';
-        $('.main').load(loadLink);
-        console.log(path);
-        console.log(loadLink);
       } else {
         el.removeClass('active');
       }
     });
-    $('.copy').html(path);
+
+    var loadLink = 'templates/'+path.slice(1)+'.html';
+
+    $('.main').load(loadLink);
+    $('.path').html(path);
+
+    if (path=='#stats') {
+      startSocket();
+    } else {
+      stopSocket();
+    }
+
   };
 
-  $('.button').click(function(){
+  $('.nav.router .button').click(function(){
     setLocation ($(this).find('a').attr('href'));
   });
 
-  setLocation (location.hash || '#stats-aggregated');
-
+  setLocation (location.hash || '#stats');
   $('.not-ready').removeClass('not-ready');
+  loadStatusTpl();
+
+  function stopSocket () {
+    socket.off('news');
+  }
+
+  function startSocket () {
+
+    socket.on('news', function (data) {
+      var date = moment().format('MMMM Do YYYY, h:mm:ss A');
+      displayStatus(data.status);
+      socket.emit('my other event', {
+        Date: date,
+        Browser: navigator.appName,
+        Platform: navigator.platform,
+        Page: location.hash
+      });
+    });
+
+  }
 
 });
 //# sourceMappingURL=main.js.map
