@@ -82,3 +82,8 @@
 .info-ul {
   padding: 20px 30px;
 }
+
+.is-loading{
+  content:url(http://chimplyimage.appspot.com/images/samples/classic-spinner/niceAnimatedTriangles.gif);
+  
+}
