@@ -63,6 +63,19 @@ $(document).ready(function () {
     ['Start Time', 'start time', 'date']
   ];
 
+  var locations = [
+    ['#stats'],
+    ['#graphs'],
+    ['#contacts'],
+  ];
+/*
+  var checkLocation = function checkLocation (locations) {
+    locations.forEach(function(item){
+      if(location.hash != item)
+        alert(item + 'page was not found');
+    })
+  };
+*/
   var setLocation = function setLocation (path) {
 
     $('.nav.router > .button').each (function () {
