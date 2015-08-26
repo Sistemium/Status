@@ -14,7 +14,6 @@
   padding: 20px 30px;
 }
 
-
 .name::after{
   content: ':';
 }
@@ -40,25 +39,25 @@
 
 .list-group{
   padding: 0px;
-
 }
 
 .list-group-custom:hover{
    background-color: #C9D1D1;
-   border-radius: 45px ;
-
+   border-radius: 45px;
 }
+
+/* Contatcs css */
+
 
 .info-field{
   list-style: none;
   overflow: hidden;
   text-align: center;
-
 }
 
 .info-name, .value {
-  float: left; /* Обтекание справа */
-  width: 35%; /* Ширина текстового блока */
+  float: left;
+  width: 35%;
 
 }
 
@@ -67,7 +66,7 @@
 }
 
 .value {
-  text-align: right; /* Выравнивание по правому краю */
+  text-align: right;
   width: 65%;
 }
 
@@ -79,11 +78,12 @@
   margin: 0;
   padding: 0;
 }
+
 .info-ul {
   padding: 20px 30px;
 }
 
-.is-loading{
-  content:url(http://chimplyimage.appspot.com/images/samples/classic-spinner/niceAnimatedTriangles.gif);
-  
+.spinner{
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
