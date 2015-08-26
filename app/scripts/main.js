@@ -18,6 +18,16 @@ $(document).ready(function () {
     };
 
     labels.forEach (function (label) {
+      var val = data[label[1]];
+      switch (label[2]) {
+        case 'seconds':
+          val = durationTpl(moment.duration(val,'seconds'));
+          break;
+        case 'date':
+          val = moment.unix(val).format('MMMM Do YYYY, h:mm:ss A');
+          break;
+      }
+
       tplData.items.push ({
         label: label[0],
         value: data[label[1]]
