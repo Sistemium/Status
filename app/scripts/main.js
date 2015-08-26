@@ -6,6 +6,7 @@ $(document).ready(function () {
 
   var socket = io('http://localhost:4000/status');
   var statusTpl;
+  var durationTpl = Handlebars.compile('{{days}}{{hours}}{{minutes}}{{seconds}}');
 
   function displayStatus(data){
 
