@@ -33,12 +33,6 @@ $(document).ready(function () {
       url: 'templates/stats-aggregated.html',
       success: function(template){
         statusTpl = Handlebars.compile(template);
-      },
-      beforeSend: function(){
-          $('.wrapper').addClass('is-loading');
-      },
-      complete: function(){
-          $('.wrapper').removeClass('is-loading');
       }
     });
 
