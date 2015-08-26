@@ -55,11 +55,6 @@ body {
   background-color: #59A9F0;
 }
 
-.is-loading{
-  content:url(http://chimplyimage.appspot.com/images/samples/classic-spinner/niceAnimatedTriangles.gif);
-  width: 500px;
-}
-
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -75,7 +70,6 @@ body {
     max-width: 500px;
 
   }
-
 
   /* Space out the masthead */
   .header {
