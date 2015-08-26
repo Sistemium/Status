@@ -30,7 +30,7 @@ $(document).ready(function () {
 
       tplData.items.push ({
         label: label[0],
-        value: data[label[1]]
+        value: val
       })
     })
 
@@ -59,8 +59,8 @@ $(document).ready(function () {
     ['Max Active Processes', 'max active processes'],
     ['Max Children Reached', 'max children reached'],
     ['Slow Requests', 'slow requests'],
-    ['Start Since', 'start since'],
-    ['Start Time', 'start time']
+    ['Start Since', 'start since', 'seconds'],
+    ['Start Time', 'start time', 'date']
   ];
 
   var setLocation = function setLocation (path) {
