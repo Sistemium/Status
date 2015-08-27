@@ -87,3 +87,15 @@
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
+.not-found h2 {
+  margin-bottom: 0px;
+  padding: 1em;
+}
+
+.navbar-default .navbar-brand {
+  background: url('../images/3colors-100.png') no-repeat 5px,left;
+  background-size: 40px 40px;
+  padding-left: 47px;
+  margin-left: 5px;
+}
