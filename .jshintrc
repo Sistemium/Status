@@ -1,0 +1,25 @@
+{
+  "node": true,
+  "camelcase": true,
+  "curly": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "unused": true,
+  "trailing": true,
+  "smarttabs": true,
+  "laxcomma": true,
+  "globals": {
+    "$": false,
+    "document": false,
+    "STM": false,
+    "Handlebars": false,
+    "moment": false,
+    "location": false,
+    "io": false,
+    "window": false
+  }
+}
