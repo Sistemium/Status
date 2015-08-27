@@ -10,6 +10,7 @@
 
 module.exports = function (grunt) {
 
+  require('load-grunt-tasks')(grunt);
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -32,6 +33,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      js: {
+        files: ['app/scripts/*.js'],
+        tasks: ['newer:jshint:all']
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
@@ -94,6 +99,19 @@ module.exports = function (grunt) {
           background: false,
           server: '<%= config.dist %>'
         }
+      }
+    },
+
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-stylish')
+      },
+      all: {
+        src: [
+          'Gruntfile.js',
+          'app/scripts/*.js'
+        ]
       }
     },
 
@@ -371,6 +389,7 @@ module.exports = function (grunt) {
       grunt.task.run([
         'clean:server',
         'concurrent:test',
+        'jshint:all',
         'postcss'
       ]);
     }
@@ -397,8 +416,12 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
+    'newer:jshint',
     'newer:eslint',
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+
 };
