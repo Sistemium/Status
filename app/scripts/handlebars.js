@@ -5,7 +5,7 @@
   var iifHelper = function (prop,suf) {
     return function () {
       return this[prop]() ? this[prop]() + suf : '';
-    }
+    };
   };
 
   ['days','hours','minutes','seconds'].forEach(function(key){
