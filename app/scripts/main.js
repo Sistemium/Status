@@ -63,48 +63,7 @@ $(document).ready(function () {
     ['Start Time', 'start time', 'date']
   ];
 
-  var locations = [
-    ['#stats'],
-    ['#graphs'],
-    ['#contacts'],
-  ];
-/*
-  var checkLocation = function checkLocation (locations) {
-    locations.forEach(function(item){
-      if(location.hash != item)
-        alert(item + 'page was not found');
-    })
-  };
-*/
-  var setLocation = function setLocation (path) {
 
-    $('.nav.router > .button').each (function () {
-      var el = $(this);
-      if (el.find('a').attr('href') == path) {
-        el.addClass('active');
-      } else {
-        el.removeClass('active');
-      }
-    });
-
-    var loadLink = 'templates/'+path.slice(1)+'.html';
-
-    $('.main').load(loadLink);
-    $('.path').html(path);
-
-    if (path=='#stats') {
-      startSocket();
-    } else {
-      stopSocket();
-    }
-
-  };
-
-  $('.nav.router .button').click(function(){
-    setLocation ($(this).find('a').attr('href'));
-  });
-
-  setLocation (location.hash || '#stats');
   $('.not-ready').removeClass('not-ready');
   loadStatusTpl();
 
@@ -117,5 +76,16 @@ $(document).ready(function () {
       displayStatus(data.status);
     });
   }
+
+  $(document).on('navigate', function (event,path){
+    if (path == '#stats') {
+      startSocket();
+    } else {
+      stopSocket();
+    }
+  });
+
+  STM.Navigator (location.hash || '#stats');
+
 });
 //# sourceMappingURL=main.js.map
