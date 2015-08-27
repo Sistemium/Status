@@ -67,7 +67,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 500px) {
   .container {
-    max-width: 500px;
+    max-width: 600px;
 
   }
 
