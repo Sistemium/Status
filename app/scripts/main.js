@@ -1,10 +1,9 @@
 // jshint devel:true
 'use strict';
 
-
 $(document).ready(function () {
 
-  var socket = io('http://localhost:4000/status');
+  var socket = io('https://socket.sistemium.com/status');
   var statusTpl;
   var durationTpl = Handlebars.compile('{{days}}{{hours}}{{minutes}}{{seconds}}');
 
