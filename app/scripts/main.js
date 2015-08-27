@@ -31,8 +31,8 @@ $(document).ready(function () {
       tplData.items.push ({
         label: label[0],
         value: val
-      })
-    })
+      });
+    });
 
     $('.outlet.stats-aggregated').html(tpl(tplData));
 
