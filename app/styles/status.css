@@ -34,6 +34,7 @@
   transition-property: background;
   transition-duration: ms;
   transition-timing-function: linear;
+  cursor: default;
 }
 
 
@@ -42,9 +43,10 @@
 }
 
 .list-group-custom:hover{
-   background-color: #C9D1D1;
-   border-radius: 45px;
+   background-color: #FFF;
+   border-radius: 10px;
 }
+
 
 /* Contatcs css */
 
@@ -53,12 +55,12 @@
   list-style: none;
   overflow: hidden;
   text-align: center;
+  line-height: 1.62857143em;
 }
 
 .info-name, .value {
   float: left;
   width: 35%;
-
 }
 
 .info-name{
