@@ -50,6 +50,22 @@ body {
   border: 1px solid #e7e7e7;
 }
 
+
+/* Full stats */
+
+.fullStats{
+
+}
+
+
+
+
+button.btn{
+  margin: 10px;
+
+}
+
+
 .nav li .button-active{
   border-radius: 10px;
 }
