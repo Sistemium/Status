@@ -44,7 +44,15 @@ $(document).ready(function () {
         statusTpl = Handlebars.compile(template);
       }
     });
+  }
 
+  function loadFullStatusTpl(){
+    $.ajax({
+      url: 'templates/stats-aggregated-full.html',
+      success: function(template){
+        fullStatusTpl = Handlebars.compile(template);
+      }
+    });
   }
 
   var labels = [
