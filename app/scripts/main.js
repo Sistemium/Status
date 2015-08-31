@@ -113,6 +113,7 @@ $(document).ready(function () {
 
   $('.not-ready').removeClass('not-ready');
   loadStatusTpl();
+  loadFullStatusTpl();
 
   function stopSocket () {
     socket.off('news');
