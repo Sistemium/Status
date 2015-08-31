@@ -93,6 +93,23 @@ $(document).ready(function () {
     ['Start Time', 'start time', 'date']
   ];
 
+  var labelsFull = [
+    ['Content Length', 'content length'],
+    ['Pid', 'pid'],
+    ['Requst duration', 'request duration'],
+    ['Requst method', 'request method'],
+    ['Requst URI', 'request uri'],
+    ['Requests', 'requests'],
+    ['Script', 'script'],
+    ['Start Since', 'start since', 'date'],
+    ['Start Time', 'start time', 'seconds'],
+    ['State', 'state'],
+    ['User', 'user'],
+    ['CPU usage', 'last request cpu'],
+    ['Memory usage','last request memory']
+  ];
+
+
 
   $('.not-ready').removeClass('not-ready');
   loadStatusTpl();
