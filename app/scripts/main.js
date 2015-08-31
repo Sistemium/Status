@@ -5,15 +5,23 @@ $(document).ready(function () {
 
   var socket = io('http://localhost:4000/status');
   var statusTpl;
+  var fullStatusTpl;
   var durationTpl = Handlebars.compile('{{days}}{{hours}}{{minutes}}{{seconds}}');
 
   function displayStatus(data){
 
+    var elemSize = data['total processes'];
     var tpl = statusTpl;
+    var fullTpl = fullStatusTpl;
 
     var tplData = {
       items:[],
-      numberOfProperties: Object.keys(data).length
+      numberOfProperties: labels.length
+    };
+
+    var tplFullData = {
+      itemsFull:[],
+      numberOfProperties: labelsFull.length
     };
 
     labels.forEach (function (label) {
