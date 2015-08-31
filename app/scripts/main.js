@@ -56,6 +56,8 @@ $(document).ready(function () {
       });
     }
 
+    $('.outlet.stats-aggregated').html(tpl(tplData));
+    $('.fullStats').html(fullTpl(tplFullData));
   }
 
   function loadStatusTpl(){
