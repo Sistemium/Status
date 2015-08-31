@@ -3,7 +3,7 @@
 
 $(document).ready(function () {
 
-  var socket = io('https://socket.sistemium.com/status');
+  var socket = io('http://localhost:4000/status');
   var statusTpl;
   var durationTpl = Handlebars.compile('{{days}}{{hours}}{{minutes}}{{seconds}}');
 
