@@ -39,9 +39,22 @@ $(document).ready(function () {
         label: label[0],
         value: val
       });
+
     });
 
-    $('.outlet.stats-aggregated').html(tpl(tplData));
+    for (var i = 0; i < elemSize; i++) {
+
+      labelsFull.forEach (function(labelFull){
+
+        var valFull = data.processes[i][labelFull[1]];
+
+        tplFullData.itemsFull.push ({
+          label: labelFull[0],
+          value: valFull
+        });
+
+      });
+    }
 
   }
 
