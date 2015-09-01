@@ -24,6 +24,25 @@
   text-align: right;
 }
 
+/* stats-aggregated-full.html css */
+
+.fullStatsWrapper{
+  margin-bottom: 50px;
+}
+
+.fullStatsWrapper:last-child{
+  margin-bottom: 0px;
+}
+
+.taskParagraph{
+  text-align: left;
+  margin-left: 5px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+
 .list-group-custom{
   list-style: none;
   overflow: hidden;
@@ -43,7 +62,7 @@
 }
 
 .list-group-custom:hover{
-   background-color: #FFF;
+   background-color: #EBEEF5;
    border-radius: 10px;
 }
 

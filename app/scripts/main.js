@@ -34,7 +34,6 @@ $(document).ready(function () {
           val = moment.unix(val).format('MMMM Do YYYY, h:mm:ss A');
           break;
       }
-
       tplData.items.push ({
         label: label[0],
         value: val
@@ -42,19 +41,19 @@ $(document).ready(function () {
 
     });
 
-    for (var i = 0; i < elemSize; i++) {
-
+    data.processes.forEach(function (prcss,idx) {
+      var processInfo = [];
       labelsFull.forEach (function(labelFull){
-
-        var valFull = data.processes[i][labelFull[1]];
-
-        tplFullData.itemsFull.push ({
+        processInfo.push ({
           label: labelFull[0],
-          value: valFull
+          value: prcss[labelFull[1]],
         });
-
       });
-    }
+      tplFullData.itemsFull.push({
+        processDetails: processInfo,
+        index: idx+1
+      });
+    });
 
     $('.outlet.stats-aggregated').html(tpl(tplData));
     $('.fullStats').html(fullTpl(tplFullData));

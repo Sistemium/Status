@@ -1,13 +1,15 @@
 <div class="wrapper">
-  <ul class="list-group">
     {{#each itemsFull}}
-      <div class="fullStatsWrapper">
+    <div class="fullStatsWrapper">
+      <p class = "taskParagraph">Task Number <span>{{index}}</span>: </p>
+      <ul class="list-group">
+        {{#each processDetails}}
         <li class="list-group-custom">
           <span class="name">{{label}}</span>
           <span class="badge">{{value}}</span>
         </li>
-      </div>
-    </ul>
+        {{/each}}
+      </ul>
+    </div>
     {{/each}}
-  </ul>
 </div>
