@@ -77,7 +77,7 @@ button.btn{
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 500px) {
   .container {
-    max-width: 800px;
+    max-width: 820px;
 
   }
 
