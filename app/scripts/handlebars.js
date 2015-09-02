@@ -12,4 +12,8 @@
     Handlebars.registerHelper (key,iifHelper(key,key.charAt(0)+' '));
   });
 
+  Handlebars.registerHelper ('valueForLabel',function(data,obj){
+    return data[this[1]];
+  });
+
 })(Handlebars);
