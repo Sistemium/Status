@@ -21,7 +21,8 @@ $(document).ready(function () {
 
     var tplFullData = {
       itemsFull:[],
-      numberOfProperties: labelsFull.length
+      numberOfProperties: labelsFull.length,
+      labels: labelsFull
     };
 
     labels.forEach (function (label) {
@@ -42,16 +43,9 @@ $(document).ready(function () {
     });
 
     data.processes.forEach(function (prcss,idx) {
-      var processInfo = [];
-      labelsFull.forEach (function(labelFull){
-        processInfo.push ({
-          label: labelFull[0],
-          value: prcss[labelFull[1]],
-        });
-      });
       tplFullData.itemsFull.push({
-        processDetails: processInfo,
-        index: idx+1
+        index: idx+1,
+        data: prcss
       });
     });
 
