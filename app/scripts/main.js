@@ -3,7 +3,7 @@
 
 $(document).ready(function () {
 
-  var socket = io('http://localhost:4000/status');
+  var socket = io('http://localhost:4000/status', {reconnectionAttempts: 10});
   var statusTpl;
   var fullStatusTpl;
   var durationTpl = Handlebars.compile('{{days}}{{hours}}{{minutes}}{{seconds}}');
