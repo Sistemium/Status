@@ -142,6 +142,20 @@ $(document).ready(function () {
     console.log('Attempt', num);
     $('.main').load('templates/loadingSpinner.html');
   });
+
+  socket.on('reconnect_failed', function(){
+    if (!currentSocketSubscription){
+        return;
+    }
+    console.log('event has started');
+    serverLoadError();
+  });
+
+  $('body').on('click','.btn-danger',function(){
+    location.reload();
+  });
+
+
   function startSocket () {
     socket.on('news', function (data) {
       displayStatus(data.status);
