@@ -35,9 +35,10 @@ STM.Navigator = function (defaultLocation) {
       return true;
     });
 
-    $('.main').load(loadLink);
-    $(document).trigger('navigate',path);
-    $('.path').html(path);
+    $('.main').load(loadLink, function() {
+      $(document).trigger('navigate',path);
+      $('.path').html(path);
+    });
 
   };
 
