@@ -179,6 +179,13 @@ $(document).ready(function () {
     });
     console.log('startSocket has started listening', currentSocketSubscription);
   }
+
+  function startDetailedSocket () {
+    socket.emit('subscribe','detailed');
+    socket.on(currentSocketSubscription = 'news-detailed', function (data) {
+      displayStatusDetailed(data.status);
+    });
+    console.log('startSocket has started listening', currentSocketSubscription);
   }
 
   $(document).on('navigate', function (event,path){
