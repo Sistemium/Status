@@ -173,9 +173,12 @@ $(document).ready(function () {
 
 
   function startSocket () {
-    socket.on('news', function (data) {
+    socket.emit('subscribe');
+    socket.on(currentSocketSubscription = 'news', function (data) {
       displayStatus(data.status);
     });
+    console.log('startSocket has started listening', currentSocketSubscription);
+  }
   }
 
   $(document).on('navigate', function (event,path){
