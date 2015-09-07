@@ -135,6 +135,16 @@ $(document).ready(function () {
     socket.off('news');
   }
 
+  socket.on('reconnect', function(){
+    switch (currentSocketSubscription) {
+      case 'news':
+        return socket.emit('subscribe');
+      case 'news-detailed':
+        return socket.emit('subscribe','detailed');
+    }
+  });
+
+
   socket.on('reconnecting', function(num){
     if (!currentSocketSubscription){
       return;
