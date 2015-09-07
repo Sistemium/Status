@@ -8,21 +8,16 @@ $(document).ready(function () {
   var fullStatusTpl;
   var durationTpl = Handlebars.compile('{{days}}{{hours}}{{minutes}}{{seconds}}');
 
+  $('.navbar').show();
+
   function displayStatus(data){
 
     var elemSize = data['total processes'];
     var tpl = statusTpl;
-    var fullTpl = fullStatusTpl;
 
     var tplData = {
       items:[],
       numberOfProperties: labels.length
-    };
-
-    var tplFullData = {
-      itemsFull:[],
-      numberOfProperties: labelsFull.length,
-      labels: labelsFull
     };
 
     labels.forEach (function (label) {
@@ -42,14 +37,26 @@ $(document).ready(function () {
 
     });
 
-    data.processes.forEach(function (prcss,idx) {
+    $('.outlet.stats-aggregated').html(tpl(tplData));
+  }
+
+  function displayStatusDetailed(data){
+
+    var fullTpl = fullStatusTpl;
+
+    var tplFullData = {
+      itemsFull:[],
+      numberOfProperties: labelsFull.length,
+      labels: labelsFull
+    };
+
+    data.forEach(function (prcss,idx) {
       tplFullData.itemsFull.push({
         index: idx+1,
         data: prcss
       });
     });
 
-    $('.outlet.stats-aggregated').html(tpl(tplData));
     $('.fullStats').html(fullTpl(tplFullData));
   }
 
@@ -111,7 +118,6 @@ $(document).ready(function () {
     ['CPU usage', 'last request cpu'],
     ['Memory usage','last request memory']
   ];
-
 
 
   $('.not-ready').removeClass('not-ready');
