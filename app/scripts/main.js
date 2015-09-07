@@ -142,10 +142,12 @@ $(document).ready(function () {
   }
 
   $(document).on('navigate', function (event,path){
-    if (path == '#stats') {
-      startSocket();
-    } else {
-      stopSocket();
+    stopSocket();
+    switch (path) {
+      case '#stats':
+        return startSocket();
+      case '#graphs':
+        return startDetailedSocket();
     }
   });
 
