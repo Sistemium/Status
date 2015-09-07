@@ -24,6 +24,21 @@
   text-align: right;
 }
 
+.loadingMsg{
+  margin-top: 15px;
+}
+
+.toggle{
+  margin-bottom: 20px;
+  background-color: #3A81A7;
+}
+
+/* 503.html page */
+
+.serverDown{
+  margin-bottom: 0px;
+}
+
 /* stats-aggregated-full.html css */
 
 .fullStatsWrapper{
