@@ -131,8 +131,14 @@ $(document).ready(function () {
   loadStatusTpl();
   loadFullStatusTpl();
 
+  var currentSocketSubscription;
+
   function stopSocket () {
-    socket.off('news');
+    if (currentSocketSubscription) {
+      socket.off(currentSocketSubscription);
+      socket.emit('unsubscribe');
+      currentSocketSubscription = false;
+    }
   }
 
   socket.on('reconnect', function(){
