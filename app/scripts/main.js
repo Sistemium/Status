@@ -71,6 +71,16 @@ $(document).ready(function () {
     });
   }
 
+  function serverLoadError(){
+      $.ajax({
+        url: 'templates/503.html',
+        success: function(data){
+          $('.main').html(data);
+          $('.navbar').remove();
+        }
+      });
+  }
+
   var labels = [
     ['Pool', 'pool'],
     ['Total processes', 'total processes'],
