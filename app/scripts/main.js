@@ -135,6 +135,13 @@ $(document).ready(function () {
     socket.off('news');
   }
 
+  socket.on('reconnecting', function(num){
+    if (!currentSocketSubscription){
+      return;
+    }
+    console.log('Attempt', num);
+    $('.main').load('templates/loadingSpinner.html');
+  });
   function startSocket () {
     socket.on('news', function (data) {
       displayStatus(data.status);
